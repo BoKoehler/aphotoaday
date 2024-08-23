@@ -6,24 +6,19 @@ document.getElementById('generateBtn').addEventListener('click', function() {
     imageElement.src = `images/photo${randomIndex}.jpg`;
     imageElement.classList.add('show');
 
-    // Use an alternative quote API
-    fetch('https://type.fit/api/quotes')
-        .then(response => {
-            if (!response.ok) {
-                throw new Error('Network response was not ok');
-            }
-            return response.json();
-        })
-        .then(data => {
-            const randomQuote = data[Math.floor(Math.random() * data.length)];
-            const quoteElement = document.getElementById('randomQuote');
-            quoteElement.textContent = `"${randomQuote.text}" — ${randomQuote.author || 'Unknown'}`;
-            quoteElement.classList.add('show');
-        })
-        .catch(error => {
-            console.error('Error fetching the quote:', error);
-            const quoteElement = document.getElementById('randomQuote');
-            quoteElement.textContent = "Sorry, we couldn't load a quote at this time. Please try again later.";
-            quoteElement.classList.add('show');
-        });
+    // Local array of quotes
+    const quotes = [
+        { text: "Eat a french fry to make your day better", author: "Lillian" },
+        { text: "Just do it", author: "Lillian" },
+        { text: "What the sigma", author: "Lillian" },
+        { text: "McDonalds should be your main source of calories", author: "Lillian" },
+        { text: "Toes", author: "Lillian" },
+        { text: "English or Spanish?", author: "Lillian" },
+    ];
+
+    // Select a random quote
+    const randomQuote = quotes[Math.floor(Math.random() * quotes.length)];
+    const quoteElement = document.getElementById('randomQuote');
+    quoteElement.textContent = `"${randomQuote.text}" — ${randomQuote.author}`;
+    quoteElement.classList.add('show');
 });
