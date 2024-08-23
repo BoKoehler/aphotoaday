@@ -1,28 +1,20 @@
-// Load Daily Photo
-fetch('photos/daily.json')
-    .then(response => response.json())
-    .then(data => {
-        const dailyPhotoSection = document.querySelector('.daily-photo');
-        dailyPhotoSection.innerHTML = `
-            <img src="${data.image}" alt="Daily Photo">
-            <p class="date">${data.date}</p>
-        `;
-    })
-    .catch(error => console.error('Error loading daily photo:', error));
+document.getElementById('generateBtn').addEventListener('click', function() {
+    // Assume images are named photo1.jpg, photo2.jpg, etc.
+    const totalImages = 16; // Update this number based on how many images you have
+    const randomIndex = Math.floor(Math.random() * totalImages) + 1;
+    const imageElement = document.getElementById('randomPhoto');
+    imageElement.src = `images/photo${randomIndex}.jpg`;
+    imageElement.classList.add('show');
 
-// Load Gallery Photos
-fetch('photos/gallery.json')
-    .then(response => response.json())
-    .then(data => {
-        const photoGrid = document.querySelector('.photo-grid');
-        data.forEach(photo => {
-            const photoItem = document.createElement('div');
-            photoItem.classList.add('photo-item');
-            photoItem.innerHTML = `
-                <img src="${photo.image}" alt="Gallery Photo">
-                <p class="date">${photo.date}</p>
-            `;
-            photoGrid.appendChild(photoItem);
+    // Fetch a random quote from an API
+    fetch('https://api.quotable.io/random')
+        .then(response => response.json())
+        .then(data => {
+            const quoteElement = document.getElementById('randomQuote');
+            quoteElement.textContent = `"${data.content}" — ${data.author}`;
+            quoteElement.classList.add('show');
+        })
+        .catch(error => {
+            console.error('Error fetching the quote:', error);
         });
-    })
-    .catch(error => console.error('Error loading gallery photos:', error));
+});

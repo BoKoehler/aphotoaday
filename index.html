@@ -3,29 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://fonts.googleapis.com/css2?family=Alata&display=swap" rel="stylesheet">
-    <title>A Photo a Day</title>
+    <title>Random Photo & Quote</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <header>
-        <h1>A Photo a Day</h1>
-        <p class="quote">"We are making photographs to understand what our lives mean to us." – Ralph Hattersley</p>
-    </header>
-
-    <main>
-        <section class="daily-photo">
-            <!-- Daily photo will be loaded here -->
-        </section>
-
-        <section class="gallery">
-            <h2>Gallery</h2>
-            <div class="photo-grid">
-                <!-- Gallery photos will be loaded here -->
-            </div>
-        </section>
-    </main>
-
+    <div class="container">
+        <h1>Inspiration at Your Fingertips</h1>
+        <button id="generateBtn">Generate Inspiration</button>
+        <div class="content">
+            <img id="randomPhoto" src="" alt="Random Photo">
+            <p id="randomQuote"></p>
+        </div>
+    </div>
     <script src="script.js"></script>
 </body>
 </html>

@@ -1,148 +1,73 @@
-/* Font & General Styles */
-body {
-    font-family: 'Alata', sans-serif;
-    background-color: #f5f7fa;
-    color: #4a4a4a;
+/* Base Reset */
+* {
+    box-sizing: border-box;
     margin: 0;
     padding: 0;
-    line-height: 1.6;
 }
 
-header {
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #121212;
+    color: #e0e0e0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container {
+    background-color: #1e1e1e;
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
     text-align: center;
-    padding: 20px;
-    background: linear-gradient(135deg, #ff7eb9, #ff65a3);
-    border-bottom-left-radius: 20px;
-    border-bottom-right-radius: 20px;
-    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+    max-width: 500px;
+    width: 90%;
+    transition: transform 0.3s ease;
 }
 
 h1 {
-    margin: 0;
-    font-size: 2.8em;
-    color: #fff;
-    font-weight: 600;
-}
-
-.quote {
-    font-size: 1.2em;
-    color: #f5f7fa;
-    margin-top: 10px;
-    font-style: italic;
-}
-
-main {
-    max-width: 1000px;
-    margin: 30px auto;
-    padding: 20px;
-    background-color: #ffffff;
-    border-radius: 20px;
-    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.08);
-}
-
-.daily-photo {
-    text-align: center;
-    margin-bottom: 40px;
-}
-
-.daily-photo img {
-    max-width: 85%;
-    max-height: 55vh;
-    height: auto;
-    border-radius: 15px;
-    object-fit: contain;
-    box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.1);
-}
-
-.gallery h2 {
-    text-align: center;
-    font-size: 2.2em;
+    font-size: 24px;
+    font-weight: 500;
+    color: #ffffff;
     margin-bottom: 20px;
-    color: #333;
 }
 
-/* Adjusted Masonry Grid Layout for Cleaner Appearance */
-.photo-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    grid-auto-rows: auto;
-    gap: 20px;
-    align-items: start;
+#generateBtn {
+    background-color: #333333;
+    color: #ffffff;
+    border: 1px solid #444444;
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
-.photo-item {
-    border-radius: 15px;
-    overflow: hidden;
-    box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    position: relative;
+#generateBtn:hover {
+    background-color: #444444;
+    transform: translateY(-2px);
 }
 
-.photo-item img {
-    width: 100%;
+#randomPhoto {
+    max-width: 100%;
     height: auto;
-    display: block;
-    transition: transform 0.3s ease-in-out;
-    border-radius: 15px;
+    margin-top: 20px;
+    border-radius: 8px;
+    display: none;
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
 }
 
-.photo-item:hover img {
-    transform: scale(1.05);
-    box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.2);
+#randomQuote {
+    font-size: 18px;
+    margin-top: 20px;
+    color: #b0b0b0;
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
 }
 
-.photo-item .date {
-    position: absolute;
-    bottom: 10px;
-    left: 10px;
-    font-size: 0.85em;
-    color: #fff;
-    background-color: rgba(0, 0, 0, 0.5);
-    padding: 6px 12px;
-    border-radius: 12px;
-}
-
-/* Responsive Design */
-@media (max-width: 768px) {
-    h1 {
-        font-size: 2.2em;
-    }
-
-    .quote {
-        font-size: 1em;
-    }
-
-    .daily-photo img {
-        max-width: 95%;
-    }
-
-    .gallery h2 {
-        font-size: 1.8em;
-    }
-
-    .photo-grid {
-        gap: 15px;
-    }
-}
-
-@media (max-width: 480px) {
-    h1 {
-        font-size: 1.8em;
-    }
-
-    .quote {
-        font-size: 0.9em;
-    }
-
-    .daily-photo img {
-        max-width: 100%;
-    }
-
-    .gallery h2 {
-        font-size: 1.6em;
-    }
-
-    .photo-grid {
-        gap: 10px;
-    }
+.show {
+    display: block !important;
+    opacity: 1 !important;
 }
