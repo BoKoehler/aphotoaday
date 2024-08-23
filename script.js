@@ -6,15 +6,24 @@ document.getElementById('generateBtn').addEventListener('click', function() {
     imageElement.src = `images/photo${randomIndex}.jpg`;
     imageElement.classList.add('show');
 
-    // Fetch a random quote from an API
-    fetch('https://api.quotable.io/random')
-        .then(response => response.json())
+    // Use an alternative quote API
+    fetch('https://type.fit/api/quotes')
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
+            }
+            return response.json();
+        })
         .then(data => {
+            const randomQuote = data[Math.floor(Math.random() * data.length)];
             const quoteElement = document.getElementById('randomQuote');
-            quoteElement.textContent = `"${data.content}" — ${data.author}`;
+            quoteElement.textContent = `"${randomQuote.text}" — ${randomQuote.author || 'Unknown'}`;
             quoteElement.classList.add('show');
         })
         .catch(error => {
             console.error('Error fetching the quote:', error);
+            const quoteElement = document.getElementById('randomQuote');
+            quoteElement.textContent = "Sorry, we couldn't load a quote at this time. Please try again later.";
+            quoteElement.classList.add('show');
         });
 });
