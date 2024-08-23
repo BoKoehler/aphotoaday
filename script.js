@@ -14,6 +14,7 @@ document.getElementById('generateBtn').addEventListener('click', function() {
         { text: "McDonalds should be your main source of calories", author: "Lillian" },
         { text: "Toes", author: "Lillian" },
         { text: "English or Spanish?", author: "Lillian" },
+        { text: "Be the sigma you intend to be", author: "Lillian" },
     ];
 
     // Select a random quote
