@@ -3,19 +3,52 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Deep thoughts with Lillian</title>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+    <meta name="description" content="Discover a fresh pairing of inspiring photography and uplifting thoughts from Lillian with every click.">
+    <title>Deep Thoughts with Lillian</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Karla:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="container">
-        <h1>Deep thoughts with Lillian</h1>
-        <button id="generateBtn">Generate Thoughts</button>
-        <div class="content">
-            <img id="randomPhoto" src="" alt="Random Photo">
-            <p id="randomQuote"></p>
-        </div>
+    <div class="app-background" aria-hidden="true">
+        <span class="glow glow-top"></span>
+        <span class="glow glow-bottom"></span>
     </div>
-    <script src="script.js"></script>
+    <div class="app-shell">
+        <header class="app-header">
+            <h1>Deep Thoughts with Lillian</h1>
+            <p class="app-tagline">A daily splash of photography, paired with the musings that make Lillian, Lillian.</p>
+        </header>
+
+        <main class="app-main">
+            <section class="showcase" aria-live="polite">
+                <figure class="photo-frame">
+                    <img id="randomPhoto" src="" alt="" loading="lazy">
+                    <figcaption id="photoCaption"></figcaption>
+                </figure>
+                <blockquote class="quote-card">
+                    <span class="quote-mark" aria-hidden="true">“</span>
+                    <p id="randomQuote" class="quote-text"></p>
+                    <cite id="quoteAuthor" class="quote-author"></cite>
+                    <span class="quote-mark closing" aria-hidden="true">”</span>
+                </blockquote>
+            </section>
+
+            <div class="controls">
+                <button id="generateBtn" type="button" class="primary-action">
+                    <span class="button-icon" aria-hidden="true">⟳</span>
+                    <span class="button-text">Show me another</span>
+                </button>
+                <p class="hint">Tap the button to explore more of Lillian’s world.</p>
+            </div>
+        </main>
+
+        <footer class="app-footer">
+            <p>Crafted with care for curious minds everywhere.</p>
+        </footer>
+    </div>
+
+    <script src="script.js" defer></script>
 </body>
 </html>
